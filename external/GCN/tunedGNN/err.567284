@@ -1,0 +1,5 @@
+usage: product.py [-h] [--device DEVICE] [--hidden_channels HIDDEN_CHANNELS]
+                  [--num_layers NUM_LAYERS] [--epochs EPOCHS]
+                  [--dropout DROPOUT] [--gnn GNN] [--ln] [--jk] [--res]
+                  [--save_model SAVE_MODEL] [--save_outputs SAVE_OUTPUTS]
+product.py: error: unrecognized arguments: --num_neighbors 5

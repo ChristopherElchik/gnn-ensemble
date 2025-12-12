@@ -1,0 +1,93 @@
+Sun Nov 16 08:38:03 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 PCIe               On  |   00000000:17:00.0 Off |                    0 |
+| N/A   48C    P0             50W /  350W |       1MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Namespace(device=0, hidden_channels=200, num_layers=3, epochs=300, dropout=0.5, gnn='gcn', ln=True, jk=False, res=False, num_workers=0, batch_size=1000, lr=0.003, num_neighbors=10, save_model='gcn_model.pt', save_predictions='gcn_predictions.csv')
+Loading necessary files...
+This might take a while.
+Processing graphs...
+Converting graphs into PyG objects...
+Saving...
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@gpu16>
+Subject: Job 484603: <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[h100]";#BSUB -gpu "num=1:mode=shared:mps=yes:gmem=2GB";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_products;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000;python product.py --device 0 --ln --hidden_channels 200 --gnn gcn --epochs 300 --save_model gcn_model.pt --save_predictions gcn_predictions.csv> in cluster <Hazel> Exited
+
+Job <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[h100]";#BSUB -gpu "num=1:mode=shared:mps=yes:gmem=2GB";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_products;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000;python product.py --device 0 --ln --hidden_channels 200 --gnn gcn --epochs 300 --save_model gcn_model.pt --save_predictions gcn_predictions.csv> was submitted from host <login01> by user <cwelchik> in cluster <Hazel> at Sun Nov 16 00:30:50 2025
+Job was executed on host(s) <gpu16>, in queue <gpu>, as user <cwelchik> in cluster <Hazel> at Sun Nov 16 08:37:59 2025
+</tmp/.lsbtmp357082> was used as the home directory.
+</share/csc591038f25/cwelchik/hw1/tunedGNN> was used as the working directory.
+Started at Sun Nov 16 08:37:59 2025
+Terminated at Sun Nov 16 08:41:09 2025
+Results reported at Sun Nov 16 08:41:09 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 120
+#BSUB -q gpu
+#BSUB -R "select[h100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes:gmem=2GB"
+#BSUB -o out.%J
+#BSUB -e err.%J
+
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN
+source venv/bin/activate
+cd large_graph/data/ogb/ogbn_products
+rm -rf processed
+mkdir processed
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph
+
+# Check GPU availability
+nvidia-smi
+
+# Run your GNN training
+export TORCH_LOAD_WEIGHTS_ONLY=False
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000
+python product.py --device 0 --ln --hidden_channels 200 --gnn gcn --epochs 300 --save_model gcn_model.pt --save_predictions gcn_predictions.csv
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   113.08 sec.
+    Max Memory :                                 6 GB
+    Average Memory :                             3.63 GB
+    Total Requested Memory :                     2.00 GB
+    Delta Memory :                               -4.00 GB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                9
+    Run time :                                   190 sec.
+    Turnaround time :                            29419 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.484603> for stderr output of this job.
+

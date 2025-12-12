@@ -1,0 +1,30 @@
+┌ Warning: could not download https://pkg.julialang.org/registries
+│   exception = RequestError: Failed to connect to pkg.julialang.org port 443 after 30016 ms: Timeout was reached while requesting https://pkg.julialang.org/registries
+└ @ Pkg.Registry /usr/local/apps/julia/julia-1.11.6/share/julia/stdlib/v1.11/Pkg/src/Registry/Registry.jl:77
+    Updating registry at `/share/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/registries/General.toml`
+   Resolving package versions...
+  No Changes to `/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/environments/v1.11/Project.toml`
+  No Changes to `/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/environments/v1.11/Manifest.toml`
+  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/run_experiments.py", line 192, in <module>
+    main()
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/run_experiments.py", line 175, in main
+    evaluate_params(data, eval_test, model_outs, split_idx, plain_dict, fn = plain_fn, save_dir=predictions_dir)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/outcome_correlation.py", line 259, in evaluate_params
+    res_result, result = fn(data, model_out, split_idx, **params)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/outcome_correlation.py", line 229, in double_correlation_fixed
+    resid = general_outcome_correlation(adj=A1, y=y, alpha=alpha1, num_propagations=num_propagations1, post_step=lambda x: fix_inputs(x), alpha_term=True, display=display, device=device)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/outcome_correlation.py", line 167, in general_outcome_correlation
+    result = alpha * (adj @ result)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/venv/lib64/python3.9/site-packages/torch_sparse/matmul.py", line 171, in <lambda>
+    SparseTensor.__matmul__ = lambda self, other: matmul(self, other, 'sum')
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/venv/lib64/python3.9/site-packages/torch_sparse/matmul.py", line 160, in matmul
+    return spmm(src, other, reduce)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/venv/lib64/python3.9/site-packages/torch_sparse/matmul.py", line 83, in spmm
+    return spmm_sum(src, other)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/venv/lib64/python3.9/site-packages/torch_sparse/matmul.py", line 27, in spmm_sum
+    return torch.ops.torch_sparse.spmm_sum(row, rowptr, col, value, colptr,
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/venv/lib64/python3.9/site-packages/torch/_ops.py", line 442, in __call__
+    return self._op(*args, **kwargs or {})
+RuntimeError: Not compiled with CUDA support

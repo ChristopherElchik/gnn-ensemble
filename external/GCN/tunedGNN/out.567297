@@ -1,0 +1,168 @@
+Thu Nov 27 14:22:15 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 PCIe               On  |   00000000:17:00.0 Off |                    0 |
+| N/A   35C    P0            178W /  350W |       1MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Namespace(device=0, hidden_channels=160, num_layers=5, epochs=1001, dropout=0.5, gnn='gcn', ln=True, jk=False, res=False, save_model='best_model.pt', save_outputs='gcn_results_h100.pt')
+Loading necessary files...
+This might take a while.
+Processing graphs...
+Converting graphs into PyG objects...
+Saving...
+  -> Saved best model (val_acc: 30.83%)
+Epoch: 01, Loss: 2.9198, Train: 30.84%, Valid: 30.83%, Test: 26.94%, Best Valid: 30.83%, Best Test: 26.94%
+  -> Saved best model (val_acc: 53.11%)
+Epoch: 02, Loss: 2.1182, Train: 52.81%, Valid: 53.11%, Test: 43.00%, Best Valid: 53.11%, Best Test: 43.00%
+  -> Saved best model (val_acc: 69.50%)
+Epoch: 03, Loss: 1.5257, Train: 70.20%, Valid: 69.50%, Test: 54.80%, Best Valid: 69.50%, Best Test: 54.80%
+  -> Saved best model (val_acc: 77.32%)
+Epoch: 04, Loss: 1.1255, Train: 77.78%, Valid: 77.32%, Test: 60.77%, Best Valid: 77.32%, Best Test: 60.77%
+  -> Saved best model (val_acc: 81.93%)
+Epoch: 05, Loss: 0.9134, Train: 82.24%, Valid: 81.93%, Test: 65.65%, Best Valid: 81.93%, Best Test: 65.65%
+  -> Saved best model (val_acc: 85.72%)
+Epoch: 06, Loss: 0.7918, Train: 85.93%, Valid: 85.72%, Test: 69.27%, Best Valid: 85.72%, Best Test: 69.27%
+  -> Saved best model (val_acc: 87.15%)
+Epoch: 07, Loss: 0.7011, Train: 87.30%, Valid: 87.15%, Test: 71.06%, Best Valid: 87.15%, Best Test: 71.06%
+  -> Saved best model (val_acc: 87.73%)
+Epoch: 08, Loss: 0.6431, Train: 87.90%, Valid: 87.73%, Test: 72.28%, Best Valid: 87.73%, Best Test: 72.28%
+  -> Saved best model (val_acc: 88.21%)
+Epoch: 09, Loss: 0.6037, Train: 88.35%, Valid: 88.21%, Test: 72.68%, Best Valid: 88.21%, Best Test: 72.68%
+  -> Saved best model (val_acc: 88.36%)
+Epoch: 10, Loss: 0.5809, Train: 88.47%, Valid: 88.36%, Test: 73.35%, Best Valid: 88.36%, Best Test: 73.35%
+  -> Saved best model (val_acc: 88.59%)
+Epoch: 11, Loss: 0.5586, Train: 88.75%, Valid: 88.59%, Test: 73.65%, Best Valid: 88.59%, Best Test: 73.65%
+  -> Saved best model (val_acc: 88.73%)
+Epoch: 12, Loss: 0.5464, Train: 89.12%, Valid: 88.73%, Test: 74.21%, Best Valid: 88.73%, Best Test: 74.21%
+  -> Saved best model (val_acc: 88.92%)
+Epoch: 13, Loss: 0.5353, Train: 89.27%, Valid: 88.92%, Test: 74.54%, Best Valid: 88.92%, Best Test: 74.54%
+  -> Saved best model (val_acc: 89.24%)
+Epoch: 14, Loss: 0.5217, Train: 89.50%, Valid: 89.24%, Test: 74.82%, Best Valid: 89.24%, Best Test: 74.82%
+Epoch: 15, Loss: 0.5149, Train: 89.64%, Valid: 89.18%, Test: 74.99%, Best Valid: 89.24%, Best Test: 74.82%
+  -> Saved best model (val_acc: 89.32%)
+Epoch: 16, Loss: 0.5121, Train: 89.84%, Valid: 89.32%, Test: 75.45%, Best Valid: 89.32%, Best Test: 75.45%
+  -> Saved best model (val_acc: 89.37%)
+Epoch: 17, Loss: 0.5029, Train: 89.80%, Valid: 89.37%, Test: 75.75%, Best Valid: 89.37%, Best Test: 75.75%
+  -> Saved best model (val_acc: 89.55%)
+Epoch: 18, Loss: 0.4946, Train: 89.98%, Valid: 89.55%, Test: 75.69%, Best Valid: 89.55%, Best Test: 75.69%
+  -> Saved best model (val_acc: 89.72%)
+Epoch: 19, Loss: 0.4882, Train: 90.14%, Valid: 89.72%, Test: 76.06%, Best Valid: 89.72%, Best Test: 76.06%
+  -> Saved best model (val_acc: 89.90%)
+Epoch: 20, Loss: 0.4886, Train: 90.22%, Valid: 89.90%, Test: 76.16%, Best Valid: 89.90%, Best Test: 76.16%
+Epoch: 21, Loss: 0.4799, Train: 90.33%, Valid: 89.86%, Test: 76.56%, Best Valid: 89.90%, Best Test: 76.16%
+Epoch: 22, Loss: 0.4749, Train: 90.32%, Valid: 89.86%, Test: 76.59%, Best Valid: 89.90%, Best Test: 76.16%
+Epoch: 23, Loss: 0.4721, Train: 90.34%, Valid: 89.82%, Test: 76.60%, Best Valid: 89.90%, Best Test: 76.16%
+Epoch: 24, Loss: 0.4715, Train: 90.36%, Valid: 89.82%, Test: 76.44%, Best Valid: 89.90%, Best Test: 76.16%
+  -> Saved best model (val_acc: 90.09%)
+Epoch: 25, Loss: 0.4680, Train: 90.50%, Valid: 90.09%, Test: 77.25%, Best Valid: 90.09%, Best Test: 77.25%
+  -> Saved best model (val_acc: 90.20%)
+Epoch: 26, Loss: 0.4631, Train: 90.61%, Valid: 90.20%, Test: 76.99%, Best Valid: 90.20%, Best Test: 76.99%
+Epoch: 27, Loss: 0.4593, Train: 90.67%, Valid: 90.16%, Test: 77.25%, Best Valid: 90.20%, Best Test: 76.99%
+  -> Saved best model (val_acc: 90.20%)
+Epoch: 28, Loss: 0.4598, Train: 90.65%, Valid: 90.20%, Test: 76.76%, Best Valid: 90.20%, Best Test: 76.76%
+  -> Saved best model (val_acc: 90.32%)
+Epoch: 29, Loss: 0.4559, Train: 90.82%, Valid: 90.32%, Test: 77.20%, Best Valid: 90.32%, Best Test: 77.20%
+Epoch: 30, Loss: 0.4541, Train: 90.64%, Valid: 90.21%, Test: 77.01%, Best Valid: 90.32%, Best Test: 77.20%
+  -> Saved best model (val_acc: 90.39%)
+Epoch: 31, Loss: 0.4500, Train: 90.86%, Valid: 90.39%, Test: 77.49%, Best Valid: 90.39%, Best Test: 77.49%
+  -> Saved best model (val_acc: 90.45%)
+Epoch: 32, Loss: 0.4513, Train: 90.88%, Valid: 90.45%, Test: 77.76%, Best Valid: 90.45%, Best Test: 77.76%
+Epoch: 33, Loss: 0.4456, Train: 90.73%, Valid: 90.30%, Test: 77.70%, Best Valid: 90.45%, Best Test: 77.76%
+Epoch: 34, Loss: 0.4479, Train: 90.80%, Valid: 90.22%, Test: 77.33%, Best Valid: 90.45%, Best Test: 77.76%
+  -> Saved best model (val_acc: 90.46%)
+Epoch: 35, Loss: 0.4457, Train: 90.97%, Valid: 90.46%, Test: 78.26%, Best Valid: 90.46%, Best Test: 78.26%
+Epoch: 36, Loss: 0.4433, Train: 90.91%, Valid: 90.44%, Test: 78.08%, Best Valid: 90.46%, Best Test: 78.26%
+  -> Saved best model (val_acc: 90.55%)
+Epoch: 37, Loss: 0.4396, Train: 91.13%, Valid: 90.55%, Test: 78.43%, Best Valid: 90.55%, Best Test: 78.43%
+Epoch: 38, Loss: 0.4406, Train: 91.08%, Valid: 90.43%, Test: 77.85%, Best Valid: 90.55%, Best Test: 78.43%
+Epoch: 39, Loss: 0.4387, Train: 91.03%, Valid: 90.47%, Test: 78.32%, Best Valid: 90.55%, Best Test: 78.43%
+  -> Saved best model (val_acc: 90.68%)
+Epoch: 40, Loss: 0.4361, Train: 91.13%, Valid: 90.68%, Test: 78.17%, Best Valid: 90.68%, Best Test: 78.17%
+Epoch: 41, Loss: 0.4373, Train: 91.13%, Valid: 90.64%, Test: 78.19%, Best Valid: 90.68%, Best Test: 78.17%
+Epoch: 42, Loss: 0.4328, Train: 91.26%, Valid: 90.65%, Test: 78.57%, Best Valid: 90.68%, Best Test: 78.17%
+Epoch: 43, Loss: 0.4314, Train: 91.15%, Valid: 90.60%, Test: 78.17%, Best Valid: 90.68%, Best Test: 78.17%
+  -> Saved best model (val_acc: 90.76%)
+Epoch: 44, Loss: 0.4280, Train: 91.19%, Valid: 90.76%, Test: 78.68%, Best Valid: 90.76%, Best Test: 78.68%
+Epoch: 45, Loss: 0.4258, Train: 91.21%, Valid: 90.64%, Test: 78.34%, Best Valid: 90.76%, Best Test: 78.68%
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@gpu17>
+Subject: Job 567297: <#!/bin/bash;#BSUB -n 1;#BSUB -W 240;#BSUB -q gpu;#BSUB -R "select[h100]";#BSUB -gpu "num=1";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_products;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000;python product.py --device 0 --ln --gnn gcn --save_outputs gcn_results_h100.pt> in cluster <Hazel> Exited
+
+Job <#!/bin/bash;#BSUB -n 1;#BSUB -W 240;#BSUB -q gpu;#BSUB -R "select[h100]";#BSUB -gpu "num=1";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_products;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000;python product.py --device 0 --ln --gnn gcn --save_outputs gcn_results_h100.pt> was submitted from host <login02.hpc.ncsu.edu> by user <cwelchik> in cluster <Hazel> at Thu Nov 27 13:12:49 2025
+Job was executed on host(s) <gpu17>, in queue <gpu>, as user <cwelchik> in cluster <Hazel> at Thu Nov 27 14:22:13 2025
+</tmp/.lsbtmp357082> was used as the home directory.
+</share/csc591038f25/cwelchik/hw1/tunedGNN> was used as the working directory.
+Started at Thu Nov 27 14:22:13 2025
+Terminated at Thu Nov 27 18:22:34 2025
+Results reported at Thu Nov 27 18:22:34 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 240
+#BSUB -q gpu
+#BSUB -R "select[h100]"
+#BSUB -gpu "num=1"
+#BSUB -o out.%J
+#BSUB -e err.%J
+
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN
+source venv/bin/activate
+cd large_graph/data/ogb/ogbn_products
+rm -rf processed
+mkdir processed
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph
+
+# Check GPU availability
+nvidia-smi
+
+# Run your GNN training
+export TORCH_LOAD_WEIGHTS_ONLY=False
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000
+python product.py --device 0 --ln --gnn gcn --save_outputs gcn_results_h100.pt
+
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time :                                   16045.00 sec.
+    Max Memory :                                 25 GB
+    Average Memory :                             15.97 GB
+    Total Requested Memory :                     2.00 GB
+    Delta Memory :                               -23.00 GB
+    Max Swap :                                   -
+    Max Processes :                              9
+    Max Threads :                                74
+    Run time :                                   14421 sec.
+    Turnaround time :                            18585 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.567297> for stderr output of this job.
+

@@ -1,0 +1,231 @@
+Sun Oct 19 19:49:26 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:B1:00.0 Off |                    0 |
+| N/A   54C    P0            227W /  400W |   26705MiB /  40960MiB |    100%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   3107393      C   gmx                                           870MiB |
+|    0   N/A  N/A   3111998      C   gmx                                           872MiB |
+|    0   N/A  N/A   3157132      C   python                                       8744MiB |
+|    0   N/A  N/A   3168345      C   python                                      16186MiB |
++-----------------------------------------------------------------------------------------+
+Namespace(dataset='ogbn-arxiv', data_dir='./data/', device=0, seed=42, cpu=False, epochs=100, batch_size=1000, runs=1, metric='acc', model='MPNN', hidden_channels=128, local_layers=3, num_heads=1, local_attn=False, sage=False, pre_ln=False, res=True, ln=False, bn=True, jk=False, lr=0.0005, weight_decay=0.0005, in_dropout=0.15, dropout=0.5, display_step=1, eval_step=1, eval_epoch=-1, save_model=False, model_dir='./model/', save_result=False)
+ogbn-arxiv
+Loading necessary files...
+This might take a while.
+Processing graphs...
+Saving...
+dataset ogbn-arxiv | num nodes 169343 | num edge 1166243 | num node feats 128 | num classes 40
+MODEL: MPNNs(
+  (h_lins): ModuleList(
+    (0-1): 2 x Linear(in_features=128, out_features=128, bias=True)
+  )
+  (local_convs): ModuleList(
+    (0-2): 3 x GCNConv(128, 128)
+  )
+  (lins): ModuleList(
+    (0-2): 3 x Linear(in_features=128, out_features=128, bias=True)
+  )
+  (lns): ModuleList(
+    (0-2): 3 x LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+  )
+  (bns): ModuleList(
+    (0-2): 3 x BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (lin_in): Linear(in_features=128, out_features=128, bias=True)
+  (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+  (pred_local): Linear(in_features=128, out_features=40, bias=True)
+)
+Epoch: 00, Loss: 3.9384, Train: 0.78%, Valid: 0.30%, Test: 0.25%, Best Valid: 0.30%, Best Test: 0.25%
+Epoch: 01, Loss: 3.8756, Train: 0.86%, Valid: 0.30%, Test: 0.26%, Best Valid: 0.30%, Best Test: 0.25%
+Epoch: 02, Loss: 3.8042, Train: 0.95%, Valid: 0.39%, Test: 0.38%, Best Valid: 0.39%, Best Test: 0.38%
+Epoch: 03, Loss: 3.7333, Train: 2.31%, Valid: 0.85%, Test: 0.88%, Best Valid: 0.85%, Best Test: 0.88%
+Epoch: 04, Loss: 3.6695, Train: 4.19%, Valid: 1.48%, Test: 1.41%, Best Valid: 1.48%, Best Test: 1.41%
+Epoch: 05, Loss: 3.6035, Train: 6.05%, Valid: 2.09%, Test: 1.90%, Best Valid: 2.09%, Best Test: 1.90%
+Epoch: 06, Loss: 3.5463, Train: 8.08%, Valid: 2.96%, Test: 2.44%, Best Valid: 2.96%, Best Test: 2.44%
+Epoch: 07, Loss: 3.4856, Train: 10.67%, Valid: 4.10%, Test: 3.26%, Best Valid: 4.10%, Best Test: 3.26%
+Epoch: 08, Loss: 3.4261, Train: 13.85%, Valid: 5.76%, Test: 4.29%, Best Valid: 5.76%, Best Test: 4.29%
+Epoch: 09, Loss: 3.3687, Train: 17.33%, Valid: 7.78%, Test: 5.64%, Best Valid: 7.78%, Best Test: 5.64%
+Epoch: 10, Loss: 3.3082, Train: 20.35%, Valid: 9.85%, Test: 7.10%, Best Valid: 9.85%, Best Test: 7.10%
+Epoch: 11, Loss: 3.2549, Train: 22.75%, Valid: 11.81%, Test: 8.98%, Best Valid: 11.81%, Best Test: 8.98%
+Epoch: 12, Loss: 3.2020, Train: 25.15%, Valid: 14.76%, Test: 11.70%, Best Valid: 14.76%, Best Test: 11.70%
+Epoch: 13, Loss: 3.1486, Train: 27.47%, Valid: 18.49%, Test: 15.48%, Best Valid: 18.49%, Best Test: 15.48%
+Epoch: 14, Loss: 3.0973, Train: 29.94%, Valid: 22.85%, Test: 19.68%, Best Valid: 22.85%, Best Test: 19.68%
+Epoch: 15, Loss: 3.0510, Train: 32.21%, Valid: 27.18%, Test: 24.28%, Best Valid: 27.18%, Best Test: 24.28%
+Epoch: 16, Loss: 3.0140, Train: 34.29%, Valid: 31.40%, Test: 28.74%, Best Valid: 31.40%, Best Test: 28.74%
+Epoch: 17, Loss: 2.9649, Train: 36.06%, Valid: 35.01%, Test: 32.70%, Best Valid: 35.01%, Best Test: 32.70%
+Epoch: 18, Loss: 2.9250, Train: 37.52%, Valid: 37.86%, Test: 35.76%, Best Valid: 37.86%, Best Test: 35.76%
+Epoch: 19, Loss: 2.8869, Train: 38.64%, Valid: 39.86%, Test: 37.83%, Best Valid: 39.86%, Best Test: 37.83%
+Epoch: 20, Loss: 2.8516, Train: 39.68%, Valid: 41.50%, Test: 39.28%, Best Valid: 41.50%, Best Test: 39.28%
+Epoch: 21, Loss: 2.8191, Train: 40.54%, Valid: 42.44%, Test: 40.23%, Best Valid: 42.44%, Best Test: 40.23%
+Epoch: 22, Loss: 2.7834, Train: 41.33%, Valid: 43.08%, Test: 40.66%, Best Valid: 43.08%, Best Test: 40.66%
+Epoch: 23, Loss: 2.7515, Train: 41.99%, Valid: 43.55%, Test: 41.09%, Best Valid: 43.55%, Best Test: 41.09%
+Epoch: 24, Loss: 2.7256, Train: 42.64%, Valid: 43.89%, Test: 41.41%, Best Valid: 43.89%, Best Test: 41.41%
+Epoch: 25, Loss: 2.6939, Train: 43.26%, Valid: 44.33%, Test: 41.71%, Best Valid: 44.33%, Best Test: 41.71%
+Epoch: 26, Loss: 2.6608, Train: 43.85%, Valid: 44.56%, Test: 42.05%, Best Valid: 44.56%, Best Test: 42.05%
+Epoch: 27, Loss: 2.6382, Train: 44.37%, Valid: 44.92%, Test: 42.57%, Best Valid: 44.92%, Best Test: 42.57%
+Epoch: 28, Loss: 2.6122, Train: 44.86%, Valid: 45.28%, Test: 42.89%, Best Valid: 45.28%, Best Test: 42.89%
+Epoch: 29, Loss: 2.5843, Train: 45.33%, Valid: 45.60%, Test: 43.32%, Best Valid: 45.60%, Best Test: 43.32%
+Epoch: 30, Loss: 2.5629, Train: 45.78%, Valid: 45.98%, Test: 43.74%, Best Valid: 45.98%, Best Test: 43.74%
+Epoch: 31, Loss: 2.5381, Train: 46.22%, Valid: 46.37%, Test: 44.21%, Best Valid: 46.37%, Best Test: 44.21%
+Epoch: 32, Loss: 2.5127, Train: 46.58%, Valid: 46.77%, Test: 44.67%, Best Valid: 46.77%, Best Test: 44.67%
+Epoch: 33, Loss: 2.4897, Train: 46.95%, Valid: 47.14%, Test: 45.15%, Best Valid: 47.14%, Best Test: 45.15%
+Epoch: 34, Loss: 2.4709, Train: 47.35%, Valid: 47.62%, Test: 45.79%, Best Valid: 47.62%, Best Test: 45.79%
+Epoch: 35, Loss: 2.4438, Train: 47.74%, Valid: 48.23%, Test: 46.44%, Best Valid: 48.23%, Best Test: 46.44%
+Epoch: 36, Loss: 2.4305, Train: 48.13%, Valid: 48.90%, Test: 47.15%, Best Valid: 48.90%, Best Test: 47.15%
+Epoch: 37, Loss: 2.4043, Train: 48.56%, Valid: 49.49%, Test: 47.90%, Best Valid: 49.49%, Best Test: 47.90%
+Epoch: 38, Loss: 2.3891, Train: 48.99%, Valid: 50.17%, Test: 48.56%, Best Valid: 50.17%, Best Test: 48.56%
+Epoch: 39, Loss: 2.3666, Train: 49.35%, Valid: 50.87%, Test: 49.28%, Best Valid: 50.87%, Best Test: 49.28%
+Epoch: 40, Loss: 2.3541, Train: 49.76%, Valid: 51.45%, Test: 49.98%, Best Valid: 51.45%, Best Test: 49.98%
+Epoch: 41, Loss: 2.3347, Train: 50.15%, Valid: 51.98%, Test: 50.76%, Best Valid: 51.98%, Best Test: 50.76%
+Epoch: 42, Loss: 2.3144, Train: 50.55%, Valid: 52.62%, Test: 51.43%, Best Valid: 52.62%, Best Test: 51.43%
+Epoch: 43, Loss: 2.2976, Train: 50.93%, Valid: 53.14%, Test: 52.01%, Best Valid: 53.14%, Best Test: 52.01%
+Epoch: 44, Loss: 2.2865, Train: 51.28%, Valid: 53.63%, Test: 52.67%, Best Valid: 53.63%, Best Test: 52.67%
+Epoch: 45, Loss: 2.2658, Train: 51.58%, Valid: 54.10%, Test: 53.24%, Best Valid: 54.10%, Best Test: 53.24%
+Epoch: 46, Loss: 2.2503, Train: 51.88%, Valid: 54.58%, Test: 53.78%, Best Valid: 54.58%, Best Test: 53.78%
+Epoch: 47, Loss: 2.2362, Train: 52.17%, Valid: 55.02%, Test: 54.30%, Best Valid: 55.02%, Best Test: 54.30%
+Epoch: 48, Loss: 2.2190, Train: 52.40%, Valid: 55.32%, Test: 54.70%, Best Valid: 55.32%, Best Test: 54.70%
+Epoch: 49, Loss: 2.2032, Train: 52.62%, Valid: 55.64%, Test: 55.15%, Best Valid: 55.64%, Best Test: 55.15%
+Epoch: 50, Loss: 2.1913, Train: 52.89%, Valid: 55.95%, Test: 55.52%, Best Valid: 55.95%, Best Test: 55.52%
+Epoch: 51, Loss: 2.1753, Train: 53.12%, Valid: 56.17%, Test: 55.81%, Best Valid: 56.17%, Best Test: 55.81%
+Epoch: 52, Loss: 2.1626, Train: 53.33%, Valid: 56.49%, Test: 56.06%, Best Valid: 56.49%, Best Test: 56.06%
+Epoch: 53, Loss: 2.1491, Train: 53.57%, Valid: 56.66%, Test: 56.34%, Best Valid: 56.66%, Best Test: 56.34%
+Epoch: 54, Loss: 2.1340, Train: 53.83%, Valid: 56.84%, Test: 56.58%, Best Valid: 56.84%, Best Test: 56.58%
+Epoch: 55, Loss: 2.1217, Train: 54.04%, Valid: 57.01%, Test: 56.71%, Best Valid: 57.01%, Best Test: 56.71%
+Epoch: 56, Loss: 2.1079, Train: 54.24%, Valid: 57.19%, Test: 56.90%, Best Valid: 57.19%, Best Test: 56.90%
+Epoch: 57, Loss: 2.0977, Train: 54.45%, Valid: 57.33%, Test: 57.05%, Best Valid: 57.33%, Best Test: 57.05%
+Epoch: 58, Loss: 2.0848, Train: 54.61%, Valid: 57.45%, Test: 57.14%, Best Valid: 57.45%, Best Test: 57.14%
+Epoch: 59, Loss: 2.0739, Train: 54.84%, Valid: 57.64%, Test: 57.26%, Best Valid: 57.64%, Best Test: 57.26%
+Epoch: 60, Loss: 2.0620, Train: 55.05%, Valid: 57.83%, Test: 57.35%, Best Valid: 57.83%, Best Test: 57.35%
+Epoch: 61, Loss: 2.0500, Train: 55.22%, Valid: 57.88%, Test: 57.44%, Best Valid: 57.88%, Best Test: 57.44%
+Epoch: 62, Loss: 2.0376, Train: 55.39%, Valid: 58.02%, Test: 57.58%, Best Valid: 58.02%, Best Test: 57.58%
+Epoch: 63, Loss: 2.0317, Train: 55.58%, Valid: 58.14%, Test: 57.66%, Best Valid: 58.14%, Best Test: 57.66%
+Epoch: 64, Loss: 2.0166, Train: 55.76%, Valid: 58.27%, Test: 57.75%, Best Valid: 58.27%, Best Test: 57.75%
+Epoch: 65, Loss: 2.0081, Train: 55.92%, Valid: 58.38%, Test: 57.85%, Best Valid: 58.38%, Best Test: 57.85%
+Epoch: 66, Loss: 1.9976, Train: 56.10%, Valid: 58.50%, Test: 57.99%, Best Valid: 58.50%, Best Test: 57.99%
+Epoch: 67, Loss: 1.9891, Train: 56.26%, Valid: 58.58%, Test: 58.05%, Best Valid: 58.58%, Best Test: 58.05%
+Epoch: 68, Loss: 1.9784, Train: 56.44%, Valid: 58.65%, Test: 58.14%, Best Valid: 58.65%, Best Test: 58.14%
+Epoch: 69, Loss: 1.9701, Train: 56.59%, Valid: 58.78%, Test: 58.26%, Best Valid: 58.78%, Best Test: 58.26%
+Epoch: 70, Loss: 1.9562, Train: 56.73%, Valid: 58.89%, Test: 58.41%, Best Valid: 58.89%, Best Test: 58.41%
+Epoch: 71, Loss: 1.9489, Train: 56.87%, Valid: 59.07%, Test: 58.54%, Best Valid: 59.07%, Best Test: 58.54%
+Epoch: 72, Loss: 1.9406, Train: 57.04%, Valid: 59.20%, Test: 58.68%, Best Valid: 59.20%, Best Test: 58.68%
+Epoch: 73, Loss: 1.9272, Train: 57.19%, Valid: 59.32%, Test: 58.81%, Best Valid: 59.32%, Best Test: 58.81%
+Epoch: 74, Loss: 1.9215, Train: 57.34%, Valid: 59.40%, Test: 58.89%, Best Valid: 59.40%, Best Test: 58.89%
+Epoch: 75, Loss: 1.9158, Train: 57.47%, Valid: 59.51%, Test: 59.00%, Best Valid: 59.51%, Best Test: 59.00%
+Epoch: 76, Loss: 1.9059, Train: 57.61%, Valid: 59.64%, Test: 59.10%, Best Valid: 59.64%, Best Test: 59.10%
+Epoch: 77, Loss: 1.8965, Train: 57.74%, Valid: 59.75%, Test: 59.19%, Best Valid: 59.75%, Best Test: 59.19%
+Epoch: 78, Loss: 1.8895, Train: 57.86%, Valid: 59.86%, Test: 59.30%, Best Valid: 59.86%, Best Test: 59.30%
+Epoch: 79, Loss: 1.8814, Train: 58.01%, Valid: 59.89%, Test: 59.40%, Best Valid: 59.89%, Best Test: 59.40%
+Epoch: 80, Loss: 1.8696, Train: 58.15%, Valid: 60.01%, Test: 59.54%, Best Valid: 60.01%, Best Test: 59.54%
+Epoch: 81, Loss: 1.8645, Train: 58.27%, Valid: 60.09%, Test: 59.66%, Best Valid: 60.09%, Best Test: 59.66%
+Epoch: 82, Loss: 1.8584, Train: 58.41%, Valid: 60.27%, Test: 59.77%, Best Valid: 60.27%, Best Test: 59.77%
+Epoch: 83, Loss: 1.8505, Train: 58.52%, Valid: 60.42%, Test: 59.83%, Best Valid: 60.42%, Best Test: 59.83%
+Epoch: 84, Loss: 1.8404, Train: 58.65%, Valid: 60.51%, Test: 59.94%, Best Valid: 60.51%, Best Test: 59.94%
+Epoch: 85, Loss: 1.8357, Train: 58.78%, Valid: 60.69%, Test: 60.09%, Best Valid: 60.69%, Best Test: 60.09%
+Epoch: 86, Loss: 1.8279, Train: 58.91%, Valid: 60.82%, Test: 60.24%, Best Valid: 60.82%, Best Test: 60.24%
+Epoch: 87, Loss: 1.8208, Train: 59.03%, Valid: 60.97%, Test: 60.36%, Best Valid: 60.97%, Best Test: 60.36%
+Epoch: 88, Loss: 1.8140, Train: 59.19%, Valid: 61.11%, Test: 60.58%, Best Valid: 61.11%, Best Test: 60.58%
+Epoch: 89, Loss: 1.8095, Train: 59.33%, Valid: 61.25%, Test: 60.75%, Best Valid: 61.25%, Best Test: 60.75%
+Epoch: 90, Loss: 1.8011, Train: 59.47%, Valid: 61.39%, Test: 60.94%, Best Valid: 61.39%, Best Test: 60.94%
+Epoch: 91, Loss: 1.7928, Train: 59.59%, Valid: 61.51%, Test: 61.07%, Best Valid: 61.51%, Best Test: 61.07%
+Epoch: 92, Loss: 1.7854, Train: 59.75%, Valid: 61.72%, Test: 61.23%, Best Valid: 61.72%, Best Test: 61.23%
+Epoch: 93, Loss: 1.7785, Train: 59.87%, Valid: 61.81%, Test: 61.36%, Best Valid: 61.81%, Best Test: 61.36%
+Epoch: 94, Loss: 1.7716, Train: 60.01%, Valid: 61.93%, Test: 61.48%, Best Valid: 61.93%, Best Test: 61.48%
+Epoch: 95, Loss: 1.7676, Train: 60.13%, Valid: 62.05%, Test: 61.64%, Best Valid: 62.05%, Best Test: 61.64%
+Epoch: 96, Loss: 1.7591, Train: 60.25%, Valid: 62.12%, Test: 61.77%, Best Valid: 62.12%, Best Test: 61.77%
+Epoch: 97, Loss: 1.7544, Train: 60.41%, Valid: 62.23%, Test: 61.91%, Best Valid: 62.23%, Best Test: 61.91%
+Epoch: 98, Loss: 1.7470, Train: 60.57%, Valid: 62.36%, Test: 62.03%, Best Valid: 62.36%, Best Test: 62.03%
+Epoch: 99, Loss: 1.7401, Train: 60.66%, Valid: 62.49%, Test: 62.14%, Best Valid: 62.49%, Best Test: 62.14%
+Run 01:
+Highest Train: 60.66
+Highest Valid: 62.49
+Highest Test: 62.14
+Chosen epoch: 99
+Final Train: 60.66
+Final Test: 62.14
+All runs:
+Highest Train: 60.66 ± nan
+Highest Test: 62.14 ± nan
+Highest Valid: 62.49 ± nan
+  Final Train: 60.66 ± nan
+   Final Test: 62.14 ± nan
+Saving results to results/ogbn-arxiv/MPNN.csv
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@gpu26>
+Subject: Job 83998: <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[a100]";#BSUB -gpu "num=1:mode=shared:mps=yes";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_arxiv;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 128 --epochs 100 --lr 0.0005 --runs 1 --local_layers 3 --bn --device 0 --res --batch_size 1000> in cluster <Hazel> Done
+
+Job <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[a100]";#BSUB -gpu "num=1:mode=shared:mps=yes";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_arxiv;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 128 --epochs 100 --lr 0.0005 --runs 1 --local_layers 3 --bn --device 0 --res --batch_size 1000> was submitted from host <login01> by user <cwelchik> in cluster <Hazel> at Sun Oct 19 19:49:22 2025
+Job was executed on host(s) <gpu26>, in queue <gpu>, as user <cwelchik> in cluster <Hazel> at Sun Oct 19 19:49:23 2025
+</tmp/.lsbtmp357082> was used as the home directory.
+</share/csc591038f25/cwelchik/hw1/tunedGNN> was used as the working directory.
+Started at Sun Oct 19 19:49:23 2025
+Terminated at Sun Oct 19 19:51:25 2025
+Results reported at Sun Oct 19 19:51:25 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 120
+#BSUB -q gpu
+#BSUB -R "select[a100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -o out.%J
+#BSUB -e err.%J
+
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN
+source venv/bin/activate
+cd large_graph/data/ogb/ogbn_arxiv
+rm -rf processed
+mkdir processed
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph
+
+# Check GPU availability
+nvidia-smi
+
+# Run your GNN training
+export TORCH_LOAD_WEIGHTS_ONLY=False
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 128 --epochs 100 --lr 0.0005 --runs 1 --local_layers 3 --bn --device 0 --res --batch_size 1000
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   56.00 sec.
+    Max Memory :                                 1 GB
+    Average Memory :                             0.50 GB
+    Total Requested Memory :                     2.00 GB
+    Delta Memory :                               1.00 GB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                9
+    Run time :                                   125 sec.
+    Turnaround time :                            123 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.83998> for stderr output of this job.
+

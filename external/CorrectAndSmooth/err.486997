@@ -1,0 +1,19 @@
+/tmp/.lsbtmp357082/.lsbatch/1763276514.486997.shell: line 25: julia: command not found
+Traceback (most recent call last):
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/gen_models.py", line 207, in <module>
+    main()
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/gen_models.py", line 148, in main
+    embeddings = preprocess(preprocess_data, 'spectral', post_fix=args.dataset)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/diffusion_feature.py", line 116, in preprocess
+    return spectral(data, post_fix)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/diffusion_feature.py", line 84, in spectral
+    jl = Julia(compiled_modules=False)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/venv/lib64/python3.9/site-packages/julia/core.py", line 474, in __init__
+    jlinfo = JuliaInfo.load(runtime)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/venv/lib64/python3.9/site-packages/julia/juliainfo.py", line 68, in load
+    proc = subprocess.Popen(
+  File "/usr/lib64/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib64/python3.9/subprocess.py", line 1821, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'julia'

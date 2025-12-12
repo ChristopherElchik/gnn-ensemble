@@ -1,0 +1,158 @@
+Sun Oct 19 19:44:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:B1:00.0 Off |                    0 |
+| N/A   54C    P0            241W /  400W |   26705MiB /  40960MiB |    100%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   3107393      C   gmx                                           870MiB |
+|    0   N/A  N/A   3111998      C   gmx                                           872MiB |
+|    0   N/A  N/A   3157132      C   python                                       8744MiB |
+|    0   N/A  N/A   3168345      C   python                                      16186MiB |
++-----------------------------------------------------------------------------------------+
+Namespace(dataset='ogbn-arxiv', data_dir='./data/', device=0, seed=42, cpu=False, epochs=10, batch_size=1000, runs=2, metric='acc', model='MPNN', hidden_channels=128, local_layers=3, num_heads=1, local_attn=False, sage=False, pre_ln=False, res=True, ln=False, bn=True, jk=False, lr=0.0005, weight_decay=0.0005, in_dropout=0.15, dropout=0.5, display_step=1, eval_step=1, eval_epoch=-1, save_model=False, model_dir='./model/', save_result=False)
+ogbn-arxiv
+Loading necessary files...
+This might take a while.
+Processing graphs...
+Saving...
+dataset ogbn-arxiv | num nodes 169343 | num edge 1166243 | num node feats 128 | num classes 40
+MODEL: MPNNs(
+  (h_lins): ModuleList(
+    (0-1): 2 x Linear(in_features=128, out_features=128, bias=True)
+  )
+  (local_convs): ModuleList(
+    (0-2): 3 x GCNConv(128, 128)
+  )
+  (lins): ModuleList(
+    (0-2): 3 x Linear(in_features=128, out_features=128, bias=True)
+  )
+  (lns): ModuleList(
+    (0-2): 3 x LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+  )
+  (bns): ModuleList(
+    (0-2): 3 x BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (lin_in): Linear(in_features=128, out_features=128, bias=True)
+  (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+  (pred_local): Linear(in_features=128, out_features=40, bias=True)
+)
+Epoch: 00, Loss: 3.9384, Train: 0.78%, Valid: 0.30%, Test: 0.25%, Best Valid: 0.30%, Best Test: 0.25%
+Epoch: 01, Loss: 3.8756, Train: 0.86%, Valid: 0.30%, Test: 0.26%, Best Valid: 0.30%, Best Test: 0.25%
+Epoch: 02, Loss: 3.8042, Train: 0.95%, Valid: 0.38%, Test: 0.38%, Best Valid: 0.38%, Best Test: 0.38%
+Epoch: 03, Loss: 3.7333, Train: 2.31%, Valid: 0.85%, Test: 0.88%, Best Valid: 0.85%, Best Test: 0.88%
+Epoch: 04, Loss: 3.6695, Train: 4.19%, Valid: 1.48%, Test: 1.41%, Best Valid: 1.48%, Best Test: 1.41%
+Epoch: 05, Loss: 3.6035, Train: 6.05%, Valid: 2.09%, Test: 1.90%, Best Valid: 2.09%, Best Test: 1.90%
+Epoch: 06, Loss: 3.5463, Train: 8.08%, Valid: 2.96%, Test: 2.45%, Best Valid: 2.96%, Best Test: 2.45%
+Epoch: 07, Loss: 3.4856, Train: 10.67%, Valid: 4.11%, Test: 3.26%, Best Valid: 4.11%, Best Test: 3.26%
+Epoch: 08, Loss: 3.4261, Train: 13.85%, Valid: 5.76%, Test: 4.30%, Best Valid: 5.76%, Best Test: 4.30%
+Epoch: 09, Loss: 3.3687, Train: 17.33%, Valid: 7.78%, Test: 5.64%, Best Valid: 7.78%, Best Test: 5.64%
+Run 01:
+Highest Train: 17.33
+Highest Valid: 7.78
+Highest Test: 5.64
+Chosen epoch: 9
+Final Train: 17.33
+Final Test: 5.64
+Epoch: 00, Loss: 3.9100, Train: 0.71%, Valid: 0.62%, Test: 0.54%, Best Valid: 0.62%, Best Test: 0.54%
+Epoch: 01, Loss: 3.8306, Train: 2.69%, Valid: 1.42%, Test: 1.39%, Best Valid: 1.42%, Best Test: 1.39%
+Epoch: 02, Loss: 3.7618, Train: 3.35%, Valid: 1.47%, Test: 1.40%, Best Valid: 1.47%, Best Test: 1.40%
+Epoch: 03, Loss: 3.6874, Train: 4.35%, Valid: 2.04%, Test: 1.76%, Best Valid: 2.04%, Best Test: 1.76%
+Epoch: 04, Loss: 3.6173, Train: 5.48%, Valid: 2.87%, Test: 2.68%, Best Valid: 2.87%, Best Test: 2.68%
+Epoch: 05, Loss: 3.5475, Train: 6.77%, Valid: 5.15%, Test: 6.01%, Best Valid: 5.15%, Best Test: 6.01%
+Epoch: 06, Loss: 3.4900, Train: 8.65%, Valid: 9.17%, Test: 12.51%, Best Valid: 9.17%, Best Test: 12.51%
+Epoch: 07, Loss: 3.4182, Train: 10.92%, Valid: 13.42%, Test: 18.80%, Best Valid: 13.42%, Best Test: 18.80%
+Epoch: 08, Loss: 3.3592, Train: 12.87%, Valid: 15.90%, Test: 22.01%, Best Valid: 15.90%, Best Test: 22.01%
+Epoch: 09, Loss: 3.2992, Train: 14.72%, Valid: 17.36%, Test: 23.53%, Best Valid: 17.36%, Best Test: 23.53%
+Run 02:
+Highest Train: 14.72
+Highest Valid: 17.36
+Highest Test: 23.53
+Chosen epoch: 9
+Final Train: 14.72
+Final Test: 23.53
+All runs:
+Highest Train: 16.02 ± 1.85
+Highest Test: 14.58 ± 12.65
+Highest Valid: 12.57 ± 6.77
+  Final Train: 16.02 ± 1.85
+   Final Test: 14.58 ± 12.65
+Saving results to results/ogbn-arxiv/MPNN.csv
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@gpu26>
+Subject: Job 83997: <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[a100]";#BSUB -gpu "num=1:mode=shared:mps=yes";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_arxiv;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 128 --epochs 10 --lr 0.0005 --runs 2 --local_layers 3 --bn --device 0 --res --batch_size 1000> in cluster <Hazel> Done
+
+Job <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[a100]";#BSUB -gpu "num=1:mode=shared:mps=yes";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_arxiv;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 128 --epochs 10 --lr 0.0005 --runs 2 --local_layers 3 --bn --device 0 --res --batch_size 1000> was submitted from host <login01> by user <cwelchik> in cluster <Hazel> at Sun Oct 19 19:44:38 2025
+Job was executed on host(s) <gpu26>, in queue <gpu>, as user <cwelchik> in cluster <Hazel> at Sun Oct 19 19:44:39 2025
+</tmp/.lsbtmp357082> was used as the home directory.
+</share/csc591038f25/cwelchik/hw1/tunedGNN> was used as the working directory.
+Started at Sun Oct 19 19:44:39 2025
+Terminated at Sun Oct 19 19:46:20 2025
+Results reported at Sun Oct 19 19:46:20 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 120
+#BSUB -q gpu
+#BSUB -R "select[a100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -o out.%J
+#BSUB -e err.%J
+
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN
+source venv/bin/activate
+cd large_graph/data/ogb/ogbn_arxiv
+rm -rf processed
+mkdir processed
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph
+
+# Check GPU availability
+nvidia-smi
+
+# Run your GNN training
+export TORCH_LOAD_WEIGHTS_ONLY=False
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 128 --epochs 10 --lr 0.0005 --runs 2 --local_layers 3 --bn --device 0 --res --batch_size 1000
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   25.00 sec.
+    Max Memory :                                 1 GB
+    Average Memory :                             0.50 GB
+    Total Requested Memory :                     2.00 GB
+    Delta Memory :                               1.00 GB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                9
+    Run time :                                   97 sec.
+    Turnaround time :                            102 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.83997> for stderr output of this job.
+

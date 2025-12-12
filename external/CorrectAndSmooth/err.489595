@@ -1,0 +1,7 @@
+┌ Warning: could not download https://pkg.julialang.org/registries
+│   exception = RequestError: Failed to connect to pkg.julialang.org port 443 after 30016 ms: Timeout was reached while requesting https://pkg.julialang.org/registries
+└ @ Pkg.Registry /usr/local/apps/julia/julia-1.11.6/share/julia/stdlib/v1.11/Pkg/src/Registry/Registry.jl:77
+    Updating registry at `/share/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/registries/General.toml`
+   Resolving package versions...
+  No Changes to `/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/environments/v1.11/Project.toml`
+  No Changes to `/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/environments/v1.11/Manifest.toml`

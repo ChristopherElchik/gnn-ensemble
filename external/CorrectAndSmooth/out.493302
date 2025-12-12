@@ -1,0 +1,109 @@
+Sun Nov 16 19:54:57 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:CA:00.0 Off |                    0 |
+| N/A   54C    P0            231W /  300W |   18417MiB /  46068MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A    490231    M+C   gmx_mpi                                       450MiB |
+|    0   N/A  N/A    490236      C   nvidia-cuda-mps-server                         28MiB |
+|    0   N/A  N/A    710879      C   pmemd.cuda                                   1728MiB |
+|    0   N/A  N/A    711193      C   pmemd.cuda                                   1730MiB |
+|    0   N/A  N/A    755890      C   ...srapps/hdai/mreza2/reza/bin/python3      13488MiB |
+|    0   N/A  N/A    782167      C   ...rapps/ygyingli/oxdna-2024/bin/oxDNA        482MiB |
+|    0   N/A  N/A    782364      C   ...rapps/ygyingli/oxdna-2024/bin/oxDNA        472MiB |
++-----------------------------------------------------------------------------------------+
+Processing only first 5 run(s)
+Original accuracy
+All runs:
+Highest Train: 60.2850 ± 0.0335
+Highest Valid: 59.0367 ± 0.0297
+  Final Train: 60.2850 ± 0.0335
+   Final Test: 47.7404 ± 0.0403
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@gpu14>
+Subject: Job 493302: <#!/bin/bash;#BSUB -n 1;#BSUB -W 360;#BSUB -q gpu;#BSUB -R "select[l40]";#BSUB -gpu "num=1";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/proj/CorrectAndSmooth;source venv/bin/activate;# cd large_graph/data/ogb/ogbn_products;# rm -rf processed;# mkdir processed;# cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;# export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True; module load julia;export JULIA_DEPOT_PATH="$PWD/.julia_depot"; julia -e 'using Pkg; Pkg.add(["PyCall", "LinearMaps", "Arpack"])';# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000;# python product.py --device 0 --ln --hidden_channels 64 --gnn gcn --epochs 300 --save_model gcn_model.pt --save_predictions gcn_predictions.csv;# python gen_models.py --dataset products --model linear --use_embeddings --epochs 500 --lr 0.05 --runs 2;# python gen_models.py --dataset products --model mlp --hidden_channels 200 --use_embeddings;# python gen_models.py --dataset products --model plain --epochs 1000 --lr 0.1;python run_experiments.py --dataset products --method plain --max_runs 5> in cluster <Hazel> Exited
+
+Job <#!/bin/bash;#BSUB -n 1;#BSUB -W 360;#BSUB -q gpu;#BSUB -R "select[l40]";#BSUB -gpu "num=1";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/proj/CorrectAndSmooth;source venv/bin/activate;# cd large_graph/data/ogb/ogbn_products;# rm -rf processed;# mkdir processed;# cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;# export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True; module load julia;export JULIA_DEPOT_PATH="$PWD/.julia_depot"; julia -e 'using Pkg; Pkg.add(["PyCall", "LinearMaps", "Arpack"])';# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000;# python product.py --device 0 --ln --hidden_channels 64 --gnn gcn --epochs 300 --save_model gcn_model.pt --save_predictions gcn_predictions.csv;# python gen_models.py --dataset products --model linear --use_embeddings --epochs 500 --lr 0.05 --runs 2;# python gen_models.py --dataset products --model mlp --hidden_channels 200 --use_embeddings;# python gen_models.py --dataset products --model plain --epochs 1000 --lr 0.1;python run_experiments.py --dataset products --method plain --max_runs 5> was submitted from host <login04> by user <cwelchik> in cluster <Hazel> at Sun Nov 16 19:54:41 2025
+Job was executed on host(s) <gpu14>, in queue <gpu>, as user <cwelchik> in cluster <Hazel> at Sun Nov 16 19:54:55 2025
+</tmp/.lsbtmp357082> was used as the home directory.
+</share/csc591038f25/cwelchik/proj/CorrectAndSmooth> was used as the working directory.
+Started at Sun Nov 16 19:54:55 2025
+Terminated at Sun Nov 16 19:59:50 2025
+Results reported at Sun Nov 16 19:59:50 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 360
+#BSUB -q gpu
+#BSUB -R "select[l40]"
+#BSUB -gpu "num=1"
+#BSUB -o out.%J
+#BSUB -e err.%J
+
+cd /share/csc591038f25/cwelchik/proj/CorrectAndSmooth
+source venv/bin/activate
+# cd large_graph/data/ogb/ogbn_products
+# rm -rf processed
+# mkdir processed
+# cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph
+
+# Check GPU availability
+nvidia-smi
+
+# Run your GNN training
+export TORCH_LOAD_WEIGHTS_ONLY=False
+# export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+module load julia
+export JULIA_DEPOT_PATH="$PWD/.julia_depot"
+
+julia -e 'using Pkg; Pkg.add(["PyCall", "LinearMaps", "Arpack"])'
+# python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 10 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000
+# python product.py --device 0 --ln --hidden_channels 64 --gnn gcn --epochs 300 --save_model gcn_model.pt --save_predictions gcn_predictions.csv
+# python gen_models.py --dataset products --model linear --use_embeddings --epochs 500 --lr 0.05 --runs 2
+# python gen_models.py --dataset products --model mlp --hidden_channels 200 --use_embeddings
+# python gen_models.py --dataset products --model plain --epochs 1000 --lr 0.1
+python run_experiments.py --dataset products --method plain --max_runs 5
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   71.27 sec.
+    Max Memory :                                 20 GB
+    Average Memory :                             4.73 GB
+    Total Requested Memory :                     2.00 GB
+    Delta Memory :                               -18.00 GB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   292 sec.
+    Turnaround time :                            309 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.493302> for stderr output of this job.
+

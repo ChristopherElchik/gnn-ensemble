@@ -1,0 +1,13 @@
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 13617.87it/s]
+/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/logger.py:51: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  print(f'Highest Train: {r.mean():.2f} ± {r.std():.2f}')
+/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/logger.py:53: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  print(f'Highest Test: {r.mean():.2f} ± {r.std():.2f}')
+/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/logger.py:55: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  print(f'Highest Valid: {r.mean():.2f} ± {r.std():.2f}')
+/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/logger.py:57: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  print(f'  Final Train: {r.mean():.2f} ± {r.std():.2f}')
+/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/logger.py:59: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  print(f'   Final Test: {r.mean():.2f} ± {r.std():.2f}')
+/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/logger.py:105: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  f"{results.mean():.2f} $\pm$ {results.std():.2f} \n")

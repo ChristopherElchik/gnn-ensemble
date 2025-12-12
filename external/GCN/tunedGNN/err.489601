@@ -1,0 +1,18 @@
+Processing...
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:01<00:00,  1.01s/it]100%|██████████| 1/1 [00:01<00:00,  1.01s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 17.75it/s]
+Done!
+/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/ogb/nodeproppred/dataset_pyg.py:69: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.data, self.slices = torch.load(self.processed_paths[0])
+Traceback (most recent call last):
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/product.py", line 257, in <module>
+    train_acc, val_acc, test_acc = test(epoch)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/product.py", line 204, in test
+    mask = index_to_mask(split_idx[split], data.y.shape[0])[batch.n_id[:batch_size].cpu()]
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch_geometric/data/data.py", line 561, in __getattr__
+    return getattr(self._store, key)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch_geometric/data/storage.py", line 96, in __getattr__
+    raise AttributeError(
+AttributeError: 'GlobalStorage' object has no attribute 'n_id'

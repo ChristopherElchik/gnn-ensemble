@@ -1,0 +1,95 @@
+Tue Oct 21 09:59:20 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:B1:00.0 Off |                    0 |
+| N/A   56C    P0            264W /  400W |   18802MiB /  40960MiB |    100%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   3266417      C   gmx                                           868MiB |
+|    0   N/A  N/A   3280220      C   gmx                                           870MiB |
+|    0   N/A  N/A   3299109    M+C   python                                       8484MiB |
+|    0   N/A  N/A   3299128      C   nvidia-cuda-mps-server                         30MiB |
+|    0   N/A  N/A   3299419    M+C   python                                       8446MiB |
+|    0   N/A  N/A   3299440      C   nvidia-cuda-mps-server                         30MiB |
+|    0   N/A  N/A   3377579      C   nvidia-cuda-mps-server                         30MiB |
++-----------------------------------------------------------------------------------------+
+Namespace(dataset='ogbn-arxiv', data_dir='./data/', device=0, seed=42, cpu=False, epochs=2000, batch_size=100000, runs=1, metric='acc', model='MPNN', hidden_channels=512, local_layers=5, num_heads=1, local_attn=False, sage=False, pre_ln=False, res=True, ln=False, bn=True, jk=False, lr=0.0005, weight_decay=0.0005, in_dropout=0.15, dropout=0.5, display_step=1, eval_step=1, eval_epoch=-1, save_model=False, model_dir='./model/', save_result=False)
+ogbn-arxiv
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@gpu26>
+Subject: Job 96807: <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[a100]";#BSUB -gpu "num=1:mode=shared:mps=yes:gmem=4GB";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_arxiv;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 2000 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000> in cluster <Hazel> Exited
+
+Job <#!/bin/bash;#BSUB -n 1;#BSUB -W 120;#BSUB -q gpu;#BSUB -R "select[a100]";#BSUB -gpu "num=1:mode=shared:mps=yes:gmem=4GB";#BSUB -o out.%J;#BSUB -e err.%J; cd /share/csc591038f25/cwelchik/hw1/tunedGNN;source venv/bin/activate;cd large_graph/data/ogb/ogbn_arxiv;rm -rf processed;mkdir processed;cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph; # Check GPU availability;nvidia-smi; # Run your GNN training;export TORCH_LOAD_WEIGHTS_ONLY=False;export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True;python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 2000 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000> was submitted from host <login03.hpc.ncsu.edu> by user <cwelchik> in cluster <Hazel> at Tue Oct 21 09:59:15 2025
+Job was executed on host(s) <gpu26>, in queue <gpu>, as user <cwelchik> in cluster <Hazel> at Tue Oct 21 09:59:16 2025
+</tmp/.lsbtmp357082> was used as the home directory.
+</share/csc591038f25/cwelchik/hw1/tunedGNN> was used as the working directory.
+Started at Tue Oct 21 09:59:16 2025
+Terminated at Tue Oct 21 09:59:59 2025
+Results reported at Tue Oct 21 09:59:59 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 120
+#BSUB -q gpu
+#BSUB -R "select[a100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes:gmem=4GB"
+#BSUB -o out.%J
+#BSUB -e err.%J
+
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN
+source venv/bin/activate
+cd large_graph/data/ogb/ogbn_arxiv
+rm -rf processed
+mkdir processed
+cd /share/csc591038f25/cwelchik/hw1/tunedGNN/large_graph
+
+# Check GPU availability
+nvidia-smi
+
+# Run your GNN training
+export TORCH_LOAD_WEIGHTS_ONLY=False
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+python main-arxiv.py --dataset ogbn-arxiv --hidden_channels 512 --epochs 2000 --lr 0.0005 --runs 1 --local_layers 5 --bn --device 0 --res --batch_size 100000
+
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   11.05 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     2.00 GB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                6
+    Run time :                                   39 sec.
+    Turnaround time :                            44 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.96807> for stderr output of this job.
+

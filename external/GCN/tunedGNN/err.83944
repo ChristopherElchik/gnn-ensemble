@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/main-arxiv.py", line 7, in <module>
+    from torch_geometric.utils import to_undirected, remove_self_loops, add_self_loops
+ModuleNotFoundError: No module named 'torch_geometric'

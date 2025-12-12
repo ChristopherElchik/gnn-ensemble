@@ -1,0 +1,21 @@
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 18396.07it/s]
+Traceback (most recent call last):
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/main-arxiv.py", line 90, in <module>
+    out = model(dataset.graph['node_feat'], dataset.graph['edge_index'])
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/large_graph/lg_model.py", line 93, in forward
+    x = local_conv(x, edge_index) + self.lins[i](x)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 263, in forward
+    out = self.propagate(edge_index, x=x, edge_weight=edge_weight)
+  File "/share/csc591038f25/cwelchik/tmp/torch_geometric.nn.conv.gcn_conv_GCNConv_propagate_xsa4w4lz.py", line 209, in propagate
+    out = self.message(
+  File "/gpfs_common/share04/csc591038f25/cwelchik/hw1/tunedGNN/venv/lib64/python3.9/site-packages/torch_geometric/nn/conv/gcn_conv.py", line 271, in message
+    return x_j if edge_weight is None else edge_weight.view(-1, 1) * x_j
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 4.74 GiB. GPU 0 has a total capacity of 39.50 GiB of which 2.44 GiB is free. Process 3107393 has 870.00 MiB memory in use. Process 3111998 has 872.00 MiB memory in use. Process 3157132 has 8.54 GiB memory in use. Process 3168345 has 15.81 GiB memory in use. Process 3188510 has 30.06 MiB memory in use. Including non-PyTorch memory, this process has 10.92 GiB memory in use. Of the allocated memory 6.43 GiB is allocated by PyTorch, and 4.01 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,15 @@
+┌ Warning: could not download https://pkg.julialang.org/registries
+│   exception = RequestError: Failed to connect to pkg.julialang.org port 443 after 30017 ms: Timeout was reached while requesting https://pkg.julialang.org/registries
+└ @ Pkg.Registry /usr/local/apps/julia/julia-1.11.6/share/julia/stdlib/v1.11/Pkg/src/Registry/Registry.jl:77
+    Updating registry at `/share/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/registries/General.toml`
+   Resolving package versions...
+  No Changes to `/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/environments/v1.11/Project.toml`
+  No Changes to `/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/.julia_depot/environments/v1.11/Manifest.toml`
+Traceback (most recent call last):
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/gen_models.py", line 207, in <module>
+    main()
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/gen_models.py", line 198, in main
+    logger.print_statistics(run)
+  File "/gpfs_common/share04/csc591038f25/cwelchik/proj/CorrectAndSmooth/logger.py", line 17, in print_statistics
+    argmax = result[:, 1].argmax().item()
+IndexError: too many indices for tensor of dimension 1
