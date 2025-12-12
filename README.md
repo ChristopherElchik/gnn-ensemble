@@ -2,6 +2,8 @@
 
 This repository contains an ensemble approach for node classification on the **ogbn-products** dataset, combining predictions from 6 different graph-based models using 9 different voting strategies.
 
+See the [Final Report Paper](https://github.com/ChristopherElchik/gnn-ensemble/blob/961af3bbdb3e89f15d07a28a765286b1c4b64fdd/Graph_ML_Final_Project_Report.pdf) for an in-depth description of our methods and findings.
+
 ## Project Overview
 
 This project implements and evaluates an ensemble of graph neural network models for node classification on the ogbn-products dataset from the Open Graph Benchmark (OGB). The ensemble combines predictions from 6 diverse models and tests 9 different voting/aggregation strategies to achieve improved performance over individual models.
